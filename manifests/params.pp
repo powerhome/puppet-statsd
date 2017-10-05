@@ -99,7 +99,7 @@ class statsd::params {
       $init_script    = 'puppet:///modules/statsd/statsd-init-rhel'
     }
     'Debian': {
-      if $::operatingsystem == 'Ubuntu' and versioncmp($::operatingsystemmajrelease, '16') < 0 {
+      if $::os['distro']['codename'] != 'xenial' {
         $init_location  = '/etc/init/statsd.conf'
         $init_sysconfig = '/etc/default/statsd'
         $init_mode      = '0644'
